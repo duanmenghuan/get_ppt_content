@@ -1,0 +1,92 @@
+Left: 3015610 | Top: 3830205 | Width: 2471314 | Height: 400110 | Text: 时间：2023-7-21
+Left: 7611343 | Top: 3851607 | Width: 2471314 | Height: 400110 | Text: 汇报人：某人
+Left: 5166360 | Top: 1844675 | Width: 2444750 | Height: 419100 | Text: 大标题
+Left: 4969901 | Top: 1629094 | Width: 5112568 | Height: 523220 | Text: 标题一
+Left: 4969901 | Top: 2367851 | Width: 5112568 | Height: 523220 | Text: 标题二
+Left: 4969901 | Top: 3106273 | Width: 5112568 | Height: 523220 | Text: 标题三
+Left: 4969901 | Top: 3908235 | Width: 5112568 | Height: 523220 | Text: 标题四
+Left: 2970190 | Top: 3119589 | Width: 6257970 | Height: 1106805 | Text: 标题一
+Left: 5507437 | Top: 2764777 | Width: 1080120 | Height: 400110 | Text: Part 1
+Left: 1259111 | Top: 182798 | Width: 5416128 | Height: 430887 | Text: 1.1 标题一下的分标题1
+Left: 5294452 | Top: 995645 | Width: 3108046 | Height: 430887 | Text: 正文标题1
+Left: 3938141 | Top: 1527796 | Width: 5760640 | Height: 369332 | Text: 正文内容1
+Left: 5294452 | Top: 2750677 | Width: 3108046 | Height: 430887 | Text: 正文标题2
+Left: 3938141 | Top: 3261061 | Width: 5760640 | Height: 369332 | Text: 正文内容2
+Left: 5294452 | Top: 4497591 | Width: 3108046 | Height: 430887 | Text: 正文标题3
+Left: 3938141 | Top: 5007975 | Width: 5760640 | Height: 369332 | Text: 正文内容3
+Left: 1438197 | Top: 2995804 | Width: 1499007 | Height: 1200329 | Text: 分标题2
+Left: 1259111 | Top: 182798 | Width: 4984080 | Height: 430887 | Text: 1.2 标题一下的分标题2
+Left: 1259111 | Top: 182798 | Width: 4119984 | Height: 430887 | Text: 1.3 标题一下的分标题3
+Left: 2970190 | Top: 3119589 | Width: 6257970 | Height: 1107996 | Text: 标题二
+Left: 5507437 | Top: 2764777 | Width: 1080120 | Height: 400110 | Text: Part 2
+Left: 1259111 | Top: 182798 | Width: 3649369 | Height: 430887 | Text: 2.1 标题二的分标题1
+Left: 1677578 | Top: 1914746 | Width: 1748656 | Height: 369332 | Text: 正文标题1
+Left: 1682396 | Top: 2308173 | Width: 1739020 | Height: 338554 | Text: 正文内容1
+Left: 5263383 | Top: 1914746 | Width: 1489573 | Height: 369332 | Text: 正文标题3
+Left: 5138660 | Top: 2308173 | Width: 1739020 | Height: 338554 | Text: 正文内容3
+Left: 8552978 | Top: 1914746 | Width: 1739022 | Height: 369332 | Text: 正文标题5
+Left: 8552979 | Top: 2308173 | Width: 1739020 | Height: 338554 | Text: 正文内容5
+Left: 3518473 | Top: 3619121 | Width: 1489573 | Height: 369332 | Text: 正文标题2
+Left: 3393750 | Top: 4012548 | Width: 1739020 | Height: 338554 | Text: 正文内容2
+Left: 7008293 | Top: 3619121 | Width: 1489573 | Height: 369332 | Text: 正文标题4
+Left: 6883570 | Top: 4012548 | Width: 1739020 | Height: 338554 | Text: 正文内容4
+Left: 1259111 | Top: 182798 | Width: 3649369 | Height: 430887 | Text: 2.2 标题二的分标题2
+Left: 3168650 | Top: 5463469 | Width: 8048625 | Height: 338554 | Text: 正文内容1
+Left: 1509713 | Top: 5017382 | Width: 1242648 | Height: 369332 | Text: 正文标题1
+Left: 4595813 | Top: 4761794 | Width: 6569075 | Height: 369332 | Text: 正文内容2
+Left: 5548313 | Top: 3991857 | Width: 5616575 | Height: 338554 | Text: 正文内容3
+Left: 6292850 | Top: 3066344 | Width: 4872038 | Height: 338554 | Text: 正文内容4
+Left: 2959100 | Top: 4360157 | Width: 1242648 | Height: 369332 | Text: 正文标题2
+Left: 3832225 | Top: 3574344 | Width: 1242648 | Height: 369332 | Text: 正文标题3
+Left: 4494213 | Top: 2683757 | Width: 1242648 | Height: 369332 | Text: 正文标题4
+Left: 909141 | Top: 2212426 | Width: 2182812 | Height: 540341 | Text: 分标题2
+Left: 7630669 | Top: 4874080 | Width: 1924446 | Height: 369332 | Text: 正文标题3
+Left: 7630669 | Top: 5234553 | Width: 3051344 | Height: 338554 | Text: 正文内容3
+Left: 2826473 | Top: 1328564 | Width: 2223696 | Height: 369332 | Text: 正文标题1
+Left: 1334203 | Top: 1689037 | Width: 3715965 | Height: 381258 | Text: 正文内容1
+Left: 7630668 | Top: 1328564 | Width: 2096021 | Height: 369332 | Text: 正文标题2
+Left: 7630669 | Top: 1689037 | Width: 3051344 | Height: 338554 | Text: 正文内容2
+Left: 2570783 | Top: 4874080 | Width: 2479385 | Height: 369332 | Text: 正文标题4
+Left: 1369374 | Top: 5234553 | Width: 3680794 | Height: 338554 | Text: 正文内容4
+Left: 5848998 | Top: 3146082 | Width: 1113276 | Height: 954107 | Text: 时机成熟
+Left: 1259111 | Top: 182798 | Width: 3649369 | Height: 430887 | Text: 2.3 标题二的分标题3
+Left: 1994535 | Top: 3361690 | Width: 8449310 | Height: 527685 | Text: 标题三
+Left: 5507437 | Top: 2764777 | Width: 1080120 | Height: 400110 | Text: Part 3
+Left: 6561642 | Top: 5449755 | Width: 3672800 | Height: 338554 | Text: 这里可以用来展示相关图片或视频文件
+Left: 1259111 | Top: 182798 | Width: 4119984 | Height: 430887 | Text: 3.1 标题三下的分标题1
+Left: 1787878 | Top: 1536888 | Width: 1532485 | Height: 400110 | Text: 正文标题1
+Left: 1066502 | Top: 1852679 | Width: 2181734 | Height: 338554 | Text: 正文内容1
+Left: 8937080 | Top: 1484784 | Width: 1476664 | Height: 400110 | Text: 正文标题2
+Left: 8973111 | Top: 1783884 | Width: 2158736 | Height: 338554 | Text: 正文内容2
+Left: 1787879 | Top: 4588980 | Width: 1597832 | Height: 400110 | Text: 正文标题3
+Left: 1108705 | Top: 4982877 | Width: 2900225 | Height: 338554 | Text: 正文内容3
+Left: 9084240 | Top: 4591471 | Width: 1459480 | Height: 400110 | Text: 正文标题4
+Left: 8267521 | Top: 4964932 | Width: 2864326 | Height: 338554 | Text: 正文内容4
+Left: 1259111 | Top: 164869 | Width: 4191992 | Height: 430887 | Text: 3.2 标题三下的分标题2
+Left: 1259111 | Top: 182798 | Width: 4095521 | Height: 430887 | Text: 3.3 标题三下的分标题3
+Left: 3601193 | Top: 1219223 | Width: 873718 | Height: 1200329 | Text: 正文标题1
+Left: 4480914 | Top: 3086916 | Width: 873718 | Height: 1200329 | Text: 正文标题2
+Left: 3476574 | Top: 4879204 | Width: 873718 | Height: 1200329 | Text: 正文标题3
+Left: 1422139 | Top: 2985018 | Width: 1045036 | Height: 1077218 | Text: 分标题3
+Left: 4679747 | Top: 1139312 | Width: 5955137 | Height: 369332 | Text: 正文内容1
+Left: 5580500 | Top: 3185779 | Width: 5235987 | Height: 369332 | Text: 正文内容2
+Left: 4570565 | Top: 5020085 | Width: 6064318 | Height: 369332 | Text: 正文内容3
+Left: 1994719 | Top: 3119589 | Width: 8208912 | Height: 1107996 | Text: 标题四
+Left: 5507437 | Top: 2764777 | Width: 1080120 | Height: 400110 | Text: Part 4
+Left: 1111428 | Top: 1488163 | Width: 2362472 | Height: 400110 | Text: 正文标题1
+Left: 3877078 | Top: 1348808 | Width: 7200800 | Height: 369332 | Text: 正文内容1
+Left: 1111428 | Top: 2586192 | Width: 2362472 | Height: 400110 | Text: 正文标题2
+Left: 3877078 | Top: 2423056 | Width: 7200800 | Height: 369332 | Text: 正文内容2
+Left: 1111428 | Top: 3672675 | Width: 2362472 | Height: 400110 | Text: 正文标题3
+Left: 3877078 | Top: 3518019 | Width: 7200800 | Height: 369332 | Text: 正文内容3
+Left: 1111428 | Top: 4809506 | Width: 2362472 | Height: 400110 | Text: 正文标题4
+Left: 3877078 | Top: 4650913 | Width: 7200800 | Height: 369332 | Text: 正文内容4
+Left: 1259111 | Top: 182798 | Width: 4047976 | Height: 430887 | Text: 4.1 标题四下的分标题1
+Left: 1259111 | Top: 182798 | Width: 3947913 | Height: 430887 | Text: 4.2 标题四下的分标题2
+Left: 1383626 | Top: 2239493 | Width: 4179684 | Height: 369332 | Text: 正文内容1
+Left: 6760614 | Top: 2239493 | Width: 4179684 | Height: 369332 | Text: 正文内容2
+Left: 1259111 | Top: 182798 | Width: 3975968 | Height: 430887 | Text: 4.3 标题四下的分标题3
+Left: 1490663 | Top: 1749680 | Width: 9217024 | Height: 860580 | Text: THANK YOU
+Left: 3015610 | Top: 3830205 | Width: 2471314 | Height: 400110 | Text: 时间：2023-7-21
+Left: 7611343 | Top: 3851607 | Width: 2471314 | Height: 400110 | Text: 汇报人：某人
+Left: 1259111 | Top: 182798 | Width: 3649369 | Height: 430887 | Text: 备用图标
