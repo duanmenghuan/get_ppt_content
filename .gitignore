@@ -1,7 +1,0 @@
-.pypirc
-pptx2md.egg-info/
-dist/
-build/
-.venv/
-.vscode/
-publish.bat

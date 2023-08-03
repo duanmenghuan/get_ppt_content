@@ -4,7 +4,7 @@ from pptx import Presentation
 import unicodedata
 
 # 打开PPT文件
-ppt = Presentation(rf"F:\pptx2md\大气工作总结计划汇报PPT模板.pptx")
+ppt = Presentation(rf"F:\pptx2md\get_ppt\艺术.pptx")
 # 遍历每一张幻灯片
 for slide in ppt.slides:
     # 获取幻灯片的编号
@@ -34,7 +34,7 @@ for slide in ppt.slides:
                 font_name = font.name
                 font_size = font.size
             except IndexError: # 如果出现索引错误
-                print("无法获取字体和大小，请检查文本框是否为空或者段落是否有文本")
+                #print("无法获取字体和大小，请检查文本框是否为空或者段落是否有文本")
                 continue # 跳过该循环，继续下一个循环
 
             # 定义一个函数，根据汉字的编码判断其宽度（全角或半角）
@@ -70,6 +70,7 @@ for slide in ppt.slides:
             print(f"- 文本的宽度是{text_width:.2f} 磅")
             print(f"- 形状里面可以容纳的最大字符数是{max_char_count}")
             print(f"- 形状里面的空余空间是{free_space:.2f} 磅")
+            print("---"*50)
         # 判断是否是GroupShape对象
         elif shape.shape_type == 6: # 6是GroupShape对象的类型编号
             # 获取GroupShape对象内部的形状列表
@@ -83,4 +84,32 @@ for slide in ppt.slides:
                     # 获取文本内容
                     text = text_frame.text
                     # 打印文本内容
-                    print(f"- 文本内容：{text}")
+                    print(f"- GroupShape文本内容：{text}")
+        elif shape.shape_type == 13:
+            # 获取图片对象
+            picture = shape.image
+
+            # 获取图片文件路径
+            file_path = picture.filename
+
+            # # 获取图片大小
+            # width, height = picture.width, picture.height
+
+            # 获取图片位置
+            left, top = shape.left, shape.top
+
+            # 获取图片旋转角度
+            rotation_angle = shape.rotation
+
+            # # 获取图片缩放比例
+            # scale_width, scale_height = shape.width_scale, shape.height_scale
+
+            # 获取图片描述文本
+            #description = shape.description
+            print("Picture Properties:")
+            print("File Path:", file_path)
+            #print("Size:", width, "x", height)
+            print("Position:", left, ",", top)
+            print("Rotation Angle:", rotation_angle)
+            #print("Scale:", scale_width, "x", scale_height)
+            #print("Description:", description)

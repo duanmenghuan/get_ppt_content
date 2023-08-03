@@ -1,6 +1,7 @@
 import json
 from pptx import Presentation
 from pptx.util import Pt
+from pptx.enum.shapes import MSO_SHAPE_TYPE
 
 def get_font_size(run):
     font_size = run.font.size
@@ -86,6 +87,52 @@ def counting_words(shape):
             return {"count_key": count,"max_chars_key":round(max_chars, 0)}
 
 
+
+def get_textbox_text_and_position(slide,slide_index):
+        textbox_data = []
+        for shape in slide.shapes:
+            if shape.shape_type == MSO_SHAPE_TYPE.TEXT_BOX:
+                left = shape.left
+                top = shape.top
+                width = shape.width
+                height = shape.height
+                if shape.has_text_frame:
+                    text_frame = shape.text_frame
+                    paragraphs = [p.text.strip() for p in text_frame.paragraphs]
+                    text = ' '.join(paragraphs)
+                # text = shape.text
+                    textbox_data.append({"left": left, "top": top, "width": width, "height": height, "text": text})
+            else:
+                left = shape.left
+                top = shape.top
+                width = shape.width
+                height = shape.height
+                if shape.has_text_frame:
+                    text_frame = shape.text_frame
+                    paragraphs = [p.text.strip() for p in text_frame.paragraphs]
+                    text = ' '.join(paragraphs)
+                    # text = shape.text
+                    textbox_data.append({"left": left, "top": top, "width": width, "height": height, "text": text})
+
+        sorted_textbox_data = sorted(textbox_data, key=lambda entry: entry['left'])
+        return sorted_textbox_data
+
+
+
+def get_left_positions(slide):
+    left_positions = []
+    # 遍历幻灯片中的每个形状
+    for shape in slide.shapes:
+        # 判断形状是否是文本框
+        if shape.has_text_frame:
+            left_positions.append(shape.left)
+
+    return left_positions
+
+
+
+
+
 def is_text_bold(shape):
     for paragraph in shape.text_frame.paragraphs:
         for run in paragraph.runs:
@@ -145,8 +192,11 @@ def read_presentation(shape):
 def read_ppt_content(ppt_file_path):
     presentation = Presentation(ppt_file_path)
     content_data = []
-
     for slide_index, slide in enumerate(presentation.slides):
+        # if slide_index >= 3:
+        #     continue
+        left_ = get_textbox_text_and_position(slide,slide_index)
+        #print(left_[0]['text'])
         slide_content = {
             "slide_index": slide_index,
             "content": []
@@ -160,20 +210,22 @@ def read_ppt_content(ppt_file_path):
                 c_w = counting_words(shape)
                 if '前  言' in shape.text_frame.text or '前言' in shape.text_frame.text:
                     continue
-                elif '目录' in shape.text_frame.text or '目\n录' in shape.text_frame.text:
+                elif '目录' in shape.text_frame.text or '目\n录' in shape.text_frame.text or '目 录' in shape.text_frame.text:
                     continue
                 elif contains_number_and_check_length(shape.text_frame.text):
                      continue
                 elif is_english_with_spaces(shape.text_frame.text):
                       continue
+                elif len(shape.text_frame.text) < 2:
+                    continue
                 if shape.text_frame.text:
                     ls = read_presentation(shape)
                     if ls:
                             if ls[1]:
                                 type_ = '标题'
                                 item = {
-                                    'theme': '中国古诗词发展史',
-                                    "hint text": ls[1],
+                                    'theme': '主题',
+                                    "hint_ext": ls[1],
                                     "type": type_,
                                     "number of words": f"{c_w['count_key']}" if c_w['max_chars_key'] == 0.0 else f"{c_w['max_chars_key']}",
                                     "text": ''
@@ -182,30 +234,41 @@ def read_ppt_content(ppt_file_path):
                             if ls[2]:
                                 type_ = '正文'
                                 item = {
-                                    'theme': '中国古诗词发展史',
-                                    "hint text": ls[2],
+                                    'theme': '主题',
+                                    "hint_ext": ls[2],
                                     "type": type_,
                                     "number of words": f"{c_w['count_key']}" if c_w['max_chars_key'] == 0.0 else f"{c_w['max_chars_key']}",
                                     "text": ''
                                 }
                                 slide_content["content"].append(item)
                     else:
-                        if '标题内容' in shape.text_frame.text and len(shape.text_frame.text) >20:
-                            type_ = '正文'
-                        else:
-                            if  is_title(shape) or is_text_bold(shape) == True or is_word_title(shape):
-                                    type_ = '标题'
+                            if slide_index == 0:
+                                if is_title(shape) or is_text_bold(shape) == True or is_word_title(shape):
+                                    type_ = '封面标题'
+                                else:
+                                    type_ = '正文'
+                            elif slide_index ==1:
+                                type_ = '目录标题'
+                            elif left_[0]['text'] == shape.text_frame.text:
+                                type_ = '章节标题'
+                            elif '标题内容' in shape.text_frame.text and len(shape.text_frame.text) >20:
+                                type_ = '正文'
+                            elif '副标题' in shape.text_frame.text:
+                                type_ = '副标题'
                             else:
-                                type_ ='正文'
-                        item = {
+                                if  is_title(shape) or is_text_bold(shape) == True or is_word_title(shape):
+                                        type_ = '标题'
+                                else:
+                                        type_ = '正文'
+                            item = {
 
-                            'theme': '中国古诗词发展史',
-                            "hint text": shape.text_frame.text,
-                            "type": type_,
-                            "number of words": f"{c_w['count_key']}" if c_w['max_chars_key'] == 0.0 else f"{c_w['max_chars_key']}",
-                            "text": ''
-                        }
-                        slide_content["content"].append(item)
+                                'theme': '主题',
+                                "hint_ext": shape.text_frame.text,
+                                "type": type_,
+                                "number of words": f"{c_w['count_key']}" if c_w['max_chars_key'] == 0.0 else f"{c_w['max_chars_key']}",
+                                "text": ''
+                            }
+                            slide_content["content"].append(item)
             elif shape_type == 6:  # 6是GroupShape对象的类型编号
                 # 获取GroupShape对象内部的形状列表
                 subshapes = sorted(shape.shapes, key=lambda x: (x.left, x.top))
@@ -233,8 +296,8 @@ def read_ppt_content(ppt_file_path):
                             if ls[1]:
                                 type_ = '标题'
                                 item = {
-                                    'theme': '中国古诗词发展史',
-                                    "hint text": ls[1],
+                                    'theme': '主题',
+                                    "hint_ext": ls[1],
                                     "type": type_,
                                     "number of words": f"{c_w['count_key']}" if c_w['max_chars_key'] == 0.0 else f"{c_w['max_chars_key']}",
                                     "text": ''
@@ -243,8 +306,8 @@ def read_ppt_content(ppt_file_path):
                             if ls[2]:
                                 type_ = '正文'
                                 item = {
-                                    'theme': '中国古诗词发展史',
-                                    "hint text": ls[2],
+                                    'theme': '主题',
+                                    "hint_ext": ls[2],
                                     "type": type_,
                                     "number of words": f"{c_w['count_key']}" if c_w['max_chars_key'] == 0.0 else f"{c_w['max_chars_key']}",
                                     "text": ''
@@ -258,11 +321,14 @@ def read_ppt_content(ppt_file_path):
                                     if is_title(subshape) or is_text_bold(subshape) == True or is_word_title(subshape):
                                         type_ = '标题'
                                     else:
-                                        type_ = '正文'
+                                        if slide_index == 1:
+                                            type_ = '标题'
+                                        else:
+                                            type_ = '正文'
 
                                 item = {
-                                    'theme': '中国古诗词发展史',
-                                    "hint text": f"GroupShape:{text}",
+                                    'theme': '主题',
+                                    "hint_ext": f"GroupShape:{text}",
                                     "type": type_,
                                     "number of words": f"{c_w['count_key']}" if c_w['max_chars_key'] == 0.0 else f"{c_w['max_chars_key']}",
                                     "text": ''
@@ -273,8 +339,13 @@ def read_ppt_content(ppt_file_path):
 
     return content_data
 
+import json
 if __name__ == "__main__":
     ppt_file_path = rf"F:\pptx2md\test002.pptx"
     content_data = read_ppt_content(ppt_file_path)
-    json_output = json.dumps(content_data, indent=2, ensure_ascii=False)
-    print(json_output)
+    # json_output = json.dumps(content_data, indent=2, ensure_ascii=False)
+    # print(json_output)
+    with open("output.json", "w", encoding="utf-8") as file:
+        json.dump(content_data, file, indent=2, ensure_ascii=False)
+
+    print("JSON文件已成功写入。")
