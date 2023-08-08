@@ -312,8 +312,8 @@ def read_ppt_content(ppt_file_path):
 
     def is_chapter_title_slide(text):
         compare_font_size = compare_font_sizes(slide)
-        # print(compare_font_size[0],compare_font_size[1])
-        return compare_font_size[1].isdigit() and compare_font_size[0] >=40
+        #print(compare_font_size[0],compare_font_size[1],text)
+        return compare_font_size[1].isdigit()  and compare_font_size[0] >=40
     def is_section_title_slide(left_text, top_text):
         return (left_text == text or top_text == text) and len(text) <= 15
 
@@ -459,11 +459,11 @@ def read_ppt_content(ppt_file_path):
 
 import json
 if __name__ == "__main__":
-    ppt_file_path = rf"F:\pptx2md\ppt\汽车行业产品宣传.pptx"
+    ppt_file_path = rf"F:\pptx2md\ppt\test002.pptx"
     content_data = read_ppt_content(ppt_file_path)
     # json_output = json.dumps(content_data, indent=2, ensure_ascii=False)
     # print(json_output)
-    with open("F:\pptx2md\json\哆啦A梦.json", "w", encoding="utf-8") as file:
+    with open("F:\pptx2md\json\哆啦A梦1.json", "w", encoding="utf-8") as file:
         json.dump(content_data, file, indent=2, ensure_ascii=False)
 
     print("JSON文件已成功写入。")

@@ -8,16 +8,15 @@ def rearrange_content_type(content):
     texts = []
     top_title_contents = None
     chapter_head = []
-
     for i ,item in enumerate(content):
         # if i == 1 or i == 2 :
-        #     if item["type"] == " ":
-        #        item["type"] =  '目录章节标题'
+        #
         # else:
-
             if item["type"] == "封面标题":
                 cover_title = item
             elif item["type"] == "目录标题":
+                if item['hint_ext'] == "ONTENTS":
+                    continue
                 directory_titles.append(item)  # 将所有目录标题添加到列表中
             elif item["type"] == "章节标题":
                 top_title = item
@@ -32,15 +31,13 @@ def rearrange_content_type(content):
             elif item["type"] == "副标题":
                 texts.append(item)
             elif item["type"] == "目录章节标题":
-                if item['hint_ext'].isdigit():
-                    continue
-                else:
-                    chapter_head.append(item)
-                    if len(chapter_head) >1:
+                chapter_head.append(item)
+                if len(chapter_head) > 1:
+                    if item['hint_ext'].isdigit():
                         continue
-                    elif len(chapter_head) == 1:
-                        texts.append(chapter_head[0])
-            elif item['type']=="":
+                elif len(chapter_head) == 1:
+                    texts.append(chapter_head[0])
+            elif item['type']==" ":
                 continue
 
 
@@ -77,14 +74,14 @@ def rearrange_content_type(content):
     return new_content
 
 
-with open(rf"F:\pptx2md\json\哆啦A梦.json", "r", encoding='utf-8') as file:
+with open(rf"F:\pptx2md\json\大气工作总结计划汇报PPT模板.json", "r", encoding='utf-8') as file:
     data = json.load(file)
 
 for slide in data:
     slide["content"] = rearrange_content_type(slide["content"])
 
 # 将处理后的数据写入新的 JSON 文件
-with open(rf"F:\pptx2md\json\哆啦A梦.json", "w", encoding="utf-8") as file:
+with open(rf"F:\pptx2md\json\大气工作总结计划汇报PPT模板.json", "w", encoding="utf-8") as file:
     json.dump(data, file, indent=2, ensure_ascii=False)
 
 print("JSON文件已成功写入。")
